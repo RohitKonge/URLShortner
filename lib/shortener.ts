@@ -34,55 +34,33 @@ export async function createShortUrl(originalUrl: string): Promise<string | null
   }
 }
 
-// Get original URL from short ID and increment click count
+// Get original URL from short ID and increment click count`
 export async function getOriginalUrl(shortId: string): Promise<string | null> {
   try {
     console.log(`Looking up URL for short_id: ${shortId}`);
     
     // First, get the current URL data with .noiCache() to prevent caching
-    const { data, error } = await supabase
+    const { data: urlData, error: urlError } = await supabase
       .from('urls')
-      .select('original_url, clicks')
+      .select('original_url')
       .eq('short_id', shortId)
       .single();
 
-    if (error) {
-      console.error('Error fetching URL:', error);
+    if (urlError || !urlData) {
+      console.error('Error fetching URL:', urlError);
       return null;
     }
     
-    if (!data) {
-      console.error('URL not found for shortId:', shortId);
-      return null;
-    }
-
-    // Extract the current click count and original URL with proper type handling
-    console.log('Data from database:', data);
-    console.log('Current clicks value:', data.clicks, 'Type:', typeof data.clicks);
-    
-    const currentClicks = parseInt(data.clicks) || 0;
-    const originalUrl = data.original_url;
-    
-    // Increment the click count by 1
-    const newClickCount = currentClicks + 1;
-    
-    console.log(`Incrementing clicks for ${shortId} from ${currentClicks} to ${newClickCount}`);
-    
-    // Update the database with the incremented click count, using short_id for identification
-    const { error: updateError, data: updateData } = await supabase
-      .from('urls')
-      .update({ clicks: newClickCount })
-      .eq('short_id', shortId)
-      .select('clicks');
+    // Use a separate update with server-side increment
+    const { error: updateError } = await supabase
+      .rpc('increment_clicks', { row_id: shortId });
 
     if (updateError) {
       console.error('Error updating click count:', updateError);
-    } else {
-      console.log('Update completed successfully. Updated data:', updateData);
     }
     
     // Return the original URL for redirection
-    return originalUrl;
+    return urlData.original_url;
   } catch (error) {
     console.error('Error processing URL redirect:', error);
     return null;
