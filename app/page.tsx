@@ -161,7 +161,7 @@ export default function Home() {
                   </div>
                   <div className="text-center mt-4">
                     <Link 
-                      href={`/stats/${shortId}`}
+                      href="/track"
                       className="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center group bg-white px-4 py-2 rounded-lg shadow-sm hover:shadow-md transition-all duration-200"
                     >
                       View click statistics
@@ -242,17 +242,19 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
             <div className="bg-white p-8 rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group">
-              <div className="flex justify-center mb-6">
-                <div className="bg-indigo-100 p-4 rounded-2xl group-hover:bg-indigo-200 transition-all duration-300">
-                  <svg className="w-16 h-16 text-indigo-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 16H5.43C3.14 16 2 14.86 2 12.57V5.43C2 3.14 3.14 2 5.43 2H10C12.29 2 13.43 3.14 13.43 5.43" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M18.57 22H14C11.71 22 10.57 20.86 10.57 18.57V11.43C10.57 9.14 11.71 8 14 8H18.57C20.86 8 22 9.14 22 11.43V18.57C22 20.86 20.86 22 18.57 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M14.87 15H18.13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+              <Link href="/track" className="block">
+                <div className="flex justify-center mb-6">
+                  <div className="bg-indigo-100 p-4 rounded-2xl group-hover:bg-indigo-200 transition-all duration-300">
+                    <svg className="w-16 h-16 text-indigo-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8 16H5.43C3.14 16 2 14.86 2 12.57V5.43C2 3.14 3.14 2 5.43 2H10C12.29 2 13.43 3.14 13.43 5.43" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M18.57 22H14C11.71 22 10.57 20.86 10.57 18.57V11.43C10.57 9.14 11.71 8 14 8H18.57C20.86 8 22 9.14 22 11.43V18.57C22 20.86 20.86 22 18.57 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M14.87 15H18.13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
                 </div>
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3 text-center">Statistics</h3>
-              <p className="text-gray-600 text-center">Check the number of clicks that your shortened URL received</p>
+                <h3 className="text-xl font-bold text-gray-800 mb-3 text-center">Statistics</h3>
+                <p className="text-gray-600 text-center">Check the number of clicks that your shortened URL received</p>
+              </Link>
             </div>
 
             <div className="bg-white p-8 rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 group">
