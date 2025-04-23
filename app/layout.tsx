@@ -19,6 +19,8 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <meta name="google-site-verification" content="29_3z6RLHHthRxoN5dUVYuHPtrmiV36cEmXty1LmqS0" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6902316452778520"
+         crossorigin="anonymous"></script>
       </head>
       <body className="bg-gray-100 min-h-screen">
         <main className="container mx-auto px-4 py-10">
