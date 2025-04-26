@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.svg',
   },
+  other: {
+    'google-site-verification': '29_3z6RLHHthRxoN5dUVYuHPtrmiV36cEmXty1LmqS0',
+    'google-adsense-account': 'ca-pub-9940124413364828',
+  },
 };
 
 export default function RootLayout({
@@ -16,11 +20,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <meta name="google-site-verification" content="29_3z6RLHHthRxoN5dUVYuHPtrmiV36cEmXty1LmqS0" />
-        <meta name="google-adsense-account" content="ca-pub-9940124413364828">
-      </head>
       <body className="bg-gray-100 min-h-screen">
         <main className="container mx-auto px-4 py-10">
           {children}
@@ -28,4 +27,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-} 
+}
