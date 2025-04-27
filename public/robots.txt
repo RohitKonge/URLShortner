@@ -1,0 +1,12 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://shorturl.press/sitemap.xml
+
+# Disallow shortening history to protect user privacy
+Disallow: /s/*
+
+# Rate limiting directives
+Crawl-delay: 1
