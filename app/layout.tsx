@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest',
   other: {
     'google-site-verification': '29_3z6RLHHthRxoN5dUVYuHPtrmiV36cEmXty1LmqS0',
-    'google-adsense-account': 'ca-pub-9940124413364828',
+    'google-adsense-account': 'ca-pub-5209063942780531',
   },
 };
 
